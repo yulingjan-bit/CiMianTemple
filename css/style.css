@@ -1,0 +1,259 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "微軟正黑體", arial;
+}
+
+html {
+    height: 100%;
+    font-size: 12px;
+}
+
+:focus {
+    outline: none;
+    border: none;
+}
+
+button {
+    color: white;
+}
+
+.hide {
+    display: none;
+}
+
+html {
+    height: 100%;
+}
+
+/*中籤背景光輝*/
+#bgLuckyDrawEnd {
+    position: absolute;
+    z-index: -10; /*數字愈小愈底層*/
+}
+
+#bgLuckyDrawEnd.bg {
+    background: url(img/bgLight.png) no-repeat center center;
+    -webkit-animation: lightAnimation 5s infinite linear;
+    -moz-animation: lightAnimation 5s infinite linear;
+    -o-animation: lightAnimation 5s infinite linear;
+    animation: lightAnimation 5s infinite linear;
+}
+
+#iconDiv {
+    position: absolute;
+    left: 50%;
+    width: 800px;
+    height: 100px;
+    margin-left: -400px;
+    z-index: 0;
+}
+
+#iconDiv > span {
+    position: absolute;
+}
+/*六個小圖的位置*/
+#iconDiv > span:nth-child(1) {
+    left: 185px;
+    top: 375px;
+}
+
+#iconDiv > span:nth-child(2) {
+    left: 200px;
+    top: 183px;
+}
+
+#iconDiv > span:nth-child(3) {
+    left: 155px;
+    top: 265px;
+}
+
+#iconDiv > span:nth-child(4) {
+    left: 560px;
+    top: 390px;
+}
+
+#iconDiv > span:nth-child(5) {
+    left: 565px;
+    top: 148px;
+}
+
+#iconDiv > span:nth-child(6) {
+    left: 620px;
+    top: 270px;
+}
+
+@keyframes lightAnimation {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    50% {
+        -webkit-transform: rotate(180deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes lightAnimation {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    50% {
+        -webkit-transform: rotate(180deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+body {
+    background: #EDDBD5;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    color: white;
+    text-align: center;
+}
+
+/*整個抽籤圖顯示的大小範圍 背景圖位置 css/img/bg.png 大小 800 X 676 */
+body > div {
+    background-position: center center;
+    background: url(img/bg.png) no-repeat;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -300px auto auto -400px;
+    width: 800px;
+    height: 676px;  
+    z-index: -1;
+}
+
+/*顯示結果的上方位置*/
+body > div > header {
+    margin: 0 auto;
+    height: 150px;
+    background: rgba(0, 0, 0, 0);
+    text-align: center;    
+}
+
+body > div > header > div {
+    vertical-align: middle;
+}
+
+/*顯示結果的區域*/
+body > div > section {
+    background: rgba(0, 0, 0, 0);
+    width: 170px;
+    height: 430px;
+    margin: 18px auto 0 auto;
+    vertical-align: top;
+    text-align: center;
+    position: relative;
+   /* border: 2px solid #333; 顯示框線方便調位置*/
+}
+
+/*籤筒的GIF動畫的區域*/
+body > div > section #luckyDrawing {    
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100px;
+    height: 100px;
+    margin-left: -50px;
+    margin-top: -50px;           
+}
+
+body > div > section #luckyDrawing input {
+    width: 100%;
+    height: 100%;
+    font-size: 4rem;
+    padding: 1rem;
+    box-sizing: border-box;
+    text-align: center;
+    border:0;    
+}
+
+body > div > section > #result {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: table;
+}
+
+body > div > section > #result > div {
+    display: table-cell;
+    vertical-align: middle;
+    color: black;
+}
+
+body > div > section > #result > div > span {
+    display: block;
+    float: left;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 1rem;
+    text-align: center;
+    font-size: 1.5rem;
+    width: 14.28571%;
+}
+
+body > div > section > #result > div > span > b {
+    color: #1D6DCD;
+}
+
+body > div > section > #result > div.p1 > span {
+    width: 100%;
+    font-size: 8rem;
+}
+
+
+body > div > footer {
+    height: 20%;
+    text-align: center;
+    vertical-align: top;
+}
+
+/*margin-top: 10px; 抽籤兩個字的位置*/
+body > div > footer > div {
+    vertical-align:top;
+    background: rgba(0, 0, 0, 0);
+    margin-top: 0;
+}
+
+body > div > footer > div > input {
+    padding: 1rem;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    border-radius: 1rem;
+    background: rgba(0, 0, 0, 0);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 172px;
+    margin-right: 16px;
+}
+
+/* 抽籤按鈕的文字可以在這裡設定*/
+body > div > footer > div > button {
+    background: rgba(0, 0, 0, 0);
+    border: none;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    height: 3rem;
+    border-radius: 1rem;
+    font-size: 2rem;
+}
+
+body > div > footer > div > button#btnStart {
+    width: 361px;
+    margin-right: 16px;
+    color: gray;   
+}
+
+
