@@ -1,92 +1,94 @@
 /*
-相关设置分离到settings.js
+相關抽籤的圖片檔案名稱在settings.js設定
 */
-//未中奖人员名单
+//未抽中的籤
 var remainPerson = allPerson.toString().split(";");
-//中奖人员名单
+//抽中的籤
 var luckyMan = [];
 var timer;//定时器
-var times = 1;//抽奖次数
+var times = 1;//每按一次只抽籤１次
 
 
 $(function () {
-    iconAnimation();
-    //开始抽籤
-    //$("#btnStart").text("抽籤");
+    iconAnimation();//六個小圖案的隨機動畫
+
+    //按下開始抽籤鈕就抽籤１次    
     $("#btnStart").on("click", function () {
         
-          
-        
-        //顯示GIF動畫
+        //顯示籤筒的GIF動畫 css/img/draw.gif
         $("#result").fadeOut("normal", function () {
-            $("#result>div").html("<img src='css/img/draw.gif' width='130'>");            
+            $("#result>div").html("<img src='css/img/draw.gif' width='155'>");            
                 $("#result").fadeIn();
         });
         //$("#result").fadeOut("fast");
 
-        //显示动画框，隐藏中奖框
+        //顯示動畫框，隐藏中籤框
         //    $("#luckyDrawing").show().next().addClass("hide");
 
         //顯示跳動的數字
             //move();
             
-            $("#bgLuckyDrawEnd").removeClass("bg");//移除中獎背景光輝
-       
+            $("#bgLuckyDrawEnd").removeClass("bg");//移除中獎背景光輝       
         
             var luckyDrawNum = $("#txtNum").val();
         
-        //抽籤开始0.3秒
-            setTimeout(startLuckDraw, 3000);            
-            //startLuckDraw();
+        //0.3秒後抽籤開始
+            setTimeout(startLuckDraw, 3000);
 
             $("#luckyDrawing").fadeOut();
-            clearInterval(timer);//停止输入框动画展示
-            //$("#luckyDrawing").val(luckyMan[luckyMan.length - 1]);//输入框显示最后一个中奖名字
-            $("#result").fadeIn().find("div").removeClass().addClass("p" + luckyDrawNum);//隐藏输入框，显示中奖框
-            $("#bgLuckyDrawEnd").addClass("bg");//添加中獎背景光輝
+        //停止跳動的數字
+            //clearInterval(timer);
+
+        //隱藏输入框，显示中籤框
+            $("#result").fadeIn().find("div").removeClass().addClass("p" + luckyDrawNum);
+
+        //添加中籤背景光輝
+            $("#bgLuckyDrawEnd").addClass("bg");
     
     });
 
 });
 
 
-//抽奖主程序
+//抽籤主程序
 function startLuckDraw() {
     
-    //抽奖人数
+    //抽籤數預定都是1
     var luckyDrawNum = $("#txtNum").val();
     
-    //随机中奖人
+    //随機中籤的籤文圖，圖有設定陰影 getRandomArrayElements() 定義於js/common.js
     var randomPerson = getRandomArrayElements(remainPerson, luckyDrawNum);
     var tempHtml = "";
     $.each(randomPerson, function (i, person) {       
         tempHtml += "<span><img src='css/img/" + person + ".png' width='135px' style='box-shadow:3px 3px 12px gray;'></span>";
     });
     $("#result>div").html(tempHtml);
-
 }
 
-//参考这篇文章：http://www.html-js.com/article/JS-rookie-rookie-learned-to-fly-in-a-moving-frame-beating-figures
-//跳动的数字
+//顯示跳動的數字，目前沒用到
 function move() {
-    var $showName = $("#showName"); //显示内容的input的ID
-    var interTime = 100;//设置间隔时间
+    var $showName = $("#showName"); //顯示内容的input的ID
+    var interTime = 100;//設置間隔時間
     timer = setInterval(function () {
-        var i = GetRandomNum(0, remainPerson.length);
-        $showName.val(remainPerson[i]);//输入框赋值
+        var i = GetRandomNum(0, remainPerson.length); // GetRandomNum() 定義於js/common.js
+        $showName.val(remainPerson[i]);//輸入框給定顯示的數字
     }, interTime);
 }
 
-//六個小圖案的隨機動裡
+//六個小圖案的隨機動畫
 function iconAnimation() {
     var interTime = 200;//間隔時間
     var $icon = $("#iconDiv>span");
     var arrAnimatoin = ["bounce", "flash", "pulse", "rubberBand", "shake", "swing", "wobble", "tada"];
+    var arrAnimatoin1 = ["pulse",  "shake", "swing"];
     var timer2 = setInterval(function () {
         var i = GetRandomNum(0, $icon.length);
         var j = GetRandomNum(0, arrAnimatoin.length);
-        //console.log("i:" + i + ",j:" + j);
-        $($icon[i]).removeClass().stop().addClass("animated " + arrAnimatoin[j]);//输入框赋值
+        if (i == 4) {         
+            $($icon[4]).removeClass().stop().addClass("animated "+ arrAnimatoin1[j]);//輸入框設定動畫方式
+        } else {
+            $($icon[i]).removeClass().stop().addClass("animated " + arrAnimatoin[j]);//輸入框設定動畫方式
+        }
     }, interTime);
 
 }

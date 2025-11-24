@@ -1,32 +1,6 @@
 /**
  * Created by c-zouzhongxing on 2017/1/4.
  */
-//201604260540 by ati 显示
-function showDialog(promptStr) {
-    var tempStr = "<div class='Dialog'><div><div>" + promptStr + "<div><button class='btnCloseDialog'>确定</button></div></div></div></div>";
-    $("body").append(tempStr).find(".Dialog").find("button").on("click", function () {
-        DestroyDialog();
-    });
-}
-
-function DestroyDialog() {
-    $(".Dialog").remove();
-}
-
-function showConfirm(promptStr, callback) {
-    var tempStr = "<div class='Confirm'><div><div>" + promptStr + "<div><button class='btnConfirm'>确定</button><button class='btnReturn'>返回</button></div></div></div></div>";
-    $("body").append(tempStr).find(".Confirm").find("button:nth-child(1)").on("click", function () {
-        DestroyConfirm();
-        if (typeof(callback) == "function") {
-            callback();
-        }
-    }).next().on("click", function () {
-        DestroyConfirm();
-    });
-}
-function DestroyConfirm() {
-    $(".Confirm").remove();
-}
 
 
 function getRandomArrayElements(arr, count) {
@@ -38,25 +12,21 @@ function getRandomArrayElements(arr, count) {
         index = Math.floor((i + 1) * Math.random());
         temp = shuffled[index];
         shuffled[index] = shuffled[i];
-        shuffled[i] = temp;
-
-        //顯示在頁面中間的數字
-        //$("#showName").val(shuffled[i]);        
-        //$("#showName").delay(8000).fadeIn();
-        
+        shuffled[i] = temp;       
     }
     return shuffled.slice(min);
 }
-//来源于http://www.jb51.net/article/71134.htm
+
+//去除重複參考來源http://www.jb51.net/article/71134.htm
 Array.prototype.unique = function () {
     var n = {},
-        r = []; //n为hash表，r为临时数组
-    for (var i = 0; i < this.length; i++) //遍历当前数组
+        r = []; //n为hash表，r為臨時數組
+    for (var i = 0; i < this.length; i++) //從頭執行數組
     {
-        if (!n[this[i]]) //如果hash表中没有当前项
+        if (!n[this[i]]) //如果hash表中没有當前項
         {
             n[this[i]] = true; //存入hash表
-            r.push(this[i]); //把当前数组的当前项push到临时数组里面
+            r.push(this[i]); //把當前數组的當前項push到臨時數組裏面
         }
     }
     return r;
@@ -66,33 +36,31 @@ Array.prototype.unique = function () {
 Array.prototype.delete = function (arr) {
     //var r = this.repeatedly();
     var b = [];
-    for (var i = 0; i < this.length; i++) {
-        //console.log(arr);
-        if (arr.indexOf(this[i]) < 0) {
-            //console.log(this[i] + "留在剩余抽奖人员名单");
+    for (var i = 0; i < this.length; i++) {        
+        if (arr.indexOf(this[i]) < 0) {            
             b.push(this[i]);
         }
     }
     return b;
 }
 
-//获取重复项
+//獲取重複項
 Array.prototype.repeatedly = function () {
     var n = {},
-        r = []; //n为hash表，r为临时数组
-    for (var i = 0; i < this.length; i++) //遍历当前数组
+        r = []; //n为hash表，r為臨時數組
+    for (var i = 0; i < this.length; i++) //從頭執行數組
     {
-        if (!n[this[i]]) //如果hash表中没有当前项
+        if (!n[this[i]]) //如果hash表中没有當前項
         {
             n[this[i]] = true; //存入hash表
         } else {
-            r.push(this[i]); //把当前数组的当前项push到临时数组里面
+            r.push(this[i]); //把當前收組的當前項push到臨時數組畫面
         }
     }
     return r;
 }
 
-//去重复项
+//去重複項
 Array.prototype.deleteRepeatedly = function () {
     var r = this.repeatedly();
     var b = [];
@@ -104,7 +72,7 @@ Array.prototype.deleteRepeatedly = function () {
     return b;
 }
 
-//去空内容项
+//去空内容項
 Array.prototype.deleteBlankObj = function () {
     var b = [];
     for (var i = 0; i < this.length; i++) {
@@ -114,7 +82,8 @@ Array.prototype.deleteBlankObj = function () {
     }
     return b;
 };
-//http://www.cnblogs.com/banbu/archive/2012/07/25/2607880.html
+
+
 function GetRandomNum(Min, Max) {
     var Range = Max - Min;
     var Rand = Math.random();
