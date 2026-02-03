@@ -147,13 +147,13 @@ body > div > header > div {
 /*顯示結果的區域*/
 body > div > section {
     background: rgba(0, 0, 0, 0);
-    width: 170px;
+    width: 230px;
     height: 430px;
     margin: 18px auto 0 auto;
     vertical-align: top;
     text-align: center;
     position: relative;
-   /* border: 2px solid #333; 顯示框線方便調位置*/
+    /*border: 2px solid #333; 顯示框線方便調位置*/
 }
 
 /*籤筒的GIF動畫的區域*/
@@ -236,7 +236,7 @@ body > div > footer > div > input {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     width: 172px;
-    margin-right: 16px;
+    margin-right: 16px;    
 }
 
 /* 抽籤按鈕的文字可以在這裡設定*/
@@ -245,15 +245,17 @@ body > div > footer > div > button {
     border: none;
     -webkit-appearance: none;
     -webkit-tap-highlight-color: transparent;
-    height: 3rem;
+    height: 4rem;
     border-radius: 1rem;
-    font-size: 2rem;
+    font-size: 2rem;    
 }
 
 body > div > footer > div > button#btnStart {
     width: 361px;
     margin-right: 16px;
-    color: gray;   
+    color: #0a5b3c;
+    font-weight: bold; /*抽籤字體粗體*/
+    cursor: pointer;
 }
 
 
