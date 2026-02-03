@@ -20,26 +20,23 @@ $(function () {
             $("#result>div").html("<img src='css/img/draw.gif' width='155'>");            
                 $("#result").fadeIn();
         });
-        //$("#result").fadeOut("fast");
+        
 
         //顯示動畫框，隐藏中籤框
         //    $("#luckyDrawing").show().next().addClass("hide");
 
-        //顯示跳動的數字
-            //move();
+        //顯示正面
+        setTimeout(move, 3000); 
             
-            $("#bgLuckyDrawEnd").removeClass("bg");//移除中獎背景光輝       
-        
+            $("#bgLuckyDrawEnd").removeClass("bg");//移除中獎背景光輝               
             var luckyDrawNum = $("#txtNum").val();
-        
-        //0.3秒後抽籤開始
-            setTimeout(startLuckDraw, 3000);
 
+        //0.5秒後抽籤開始
+            setTimeout(startLuckDraw, 6000);
             $("#luckyDrawing").fadeOut();
-        //停止跳動的數字
-            //clearInterval(timer);
+        
 
-        //隱藏输入框，显示中籤框
+        //顯示中籤框
             $("#result").fadeIn().find("div").removeClass().addClass("p" + luckyDrawNum);
 
         //添加中籤背景光輝
@@ -60,19 +57,18 @@ function startLuckDraw() {
     var randomPerson = getRandomArrayElements(remainPerson, luckyDrawNum);
     var tempHtml = "";
     $.each(randomPerson, function (i, person) {       
-        tempHtml += "<span><img src='css/img/" + person + ".png' width='135px' style='box-shadow:3px 3px 12px gray;'></span>";
+        tempHtml += "<span><img src='css/img/" + person + ".png' width='200px' style='box-shadow:2px 2px 10px gray;'></span>";
     });
     $("#result>div").html(tempHtml);
 }
 
-//顯示跳動的數字，目前沒用到
-function move() {
-    var $showName = $("#showName"); //顯示内容的input的ID
-    var interTime = 100;//設置間隔時間
-    timer = setInterval(function () {
-        var i = GetRandomNum(0, remainPerson.length); // GetRandomNum() 定義於js/common.js
-        $showName.val(remainPerson[i]);//輸入框給定顯示的數字
-    }, interTime);
+//顯示正面
+function move() {    
+        $("#result").fadeOut("normal", function () {
+            $("#result>div").html("<img src='css/img/00.png' width='200px' style='box-shadow:2px 2px 10px gray;'>");
+            $("#result").fadeIn();
+        });    
+        $("#result").fadeOut(2000, "linear");
 }
 
 //六個小圖案的隨機動畫
