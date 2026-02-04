@@ -15,6 +15,10 @@ $(function () {
     //按下開始抽籤鈕就抽籤１次    
     $("#btnStart").on("click", function () {
         
+        //抽的過程按鈕先失效
+        $(this).prop('disabled', true);
+       
+
         //顯示籤筒的GIF動畫 css/img/draw.gif
         $("#result").fadeOut("normal", function () {
             $("#result>div").html("<img src='css/img/draw.gif' width='155'>");            
@@ -40,9 +44,13 @@ $(function () {
             $("#result").fadeIn().find("div").removeClass().addClass("p" + luckyDrawNum);
 
         //添加中籤背景光輝
-            $("#bgLuckyDrawEnd").addClass("bg");
-    
+            $("#bgLuckyDrawEnd").addClass("bg");                
+        
     });
+
+    
+
+    
 
 });
 
@@ -60,6 +68,9 @@ function startLuckDraw() {
         tempHtml += "<span><img src='css/img/" + person + ".png' width='200px' style='box-shadow:2px 2px 10px gray;'></span>";
     });
     $("#result>div").html(tempHtml);
+
+    //抽完後按鈕才可以按
+    $("#btnStart").prop('disabled', false);
 }
 
 //顯示正面
