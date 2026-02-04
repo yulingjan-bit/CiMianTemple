@@ -251,11 +251,11 @@ body > div > footer > div > button {
 }
 
 body > div > footer > div > button#btnStart {
-    width: 361px;
+    width: 195px;
     margin-right: 16px;
     color: #0a5b3c;
     font-weight: bold; /*抽籤字體粗體*/
-    cursor: pointer;
+    cursor: pointer;    
 }
 
 
