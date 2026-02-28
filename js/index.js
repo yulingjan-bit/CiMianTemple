@@ -8,12 +8,15 @@ var luckyMan = [];
 var timer;//定时器
 var times = 1;//每按一次只抽籤１次
 
-
 $(function () {
     iconAnimation();//六個小圖案的隨機動畫
 
     //按下開始抽籤鈕就抽籤１次    
     $("#btnStart").on("click", function () {
+
+        //播放音樂    
+        document.getElementById("myAudio").muted = false; //解除靜音
+        document.getElementById("myAudio").play(); //播放
         
         //抽的過程按鈕先失效
         $(this).prop('disabled', true);
@@ -46,11 +49,7 @@ $(function () {
         //添加中籤背景光輝
             $("#bgLuckyDrawEnd").addClass("bg");                
         
-    });
-
-    
-
-    
+    });    
 
 });
 
