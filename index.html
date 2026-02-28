@@ -12,31 +12,40 @@
     <script src="js/autozoom.js"></script>  
 </head>
 <body>
-<div>
-    <header>
-        <div></div>
-    </header>
-    <section>
-        <div class="hide" id="luckyDrawing"><input id="showName" readonly unselectable="on" type="text"></div>
-        <!--PillarsZhang:用unselectable="on"來去掉文本框的光標-->
-        <div class="hide" id="result">
-            <div>
-                <font size="10"></font>
+    <audio autoplay muted loop id="myAudio">
+        <source src="xiic7-mbcjd.m4a" type="audio/mp4">
+    </audio>
+    <div>
+        <header>
+            <div></div>
+        </header>
+        <section>
+            <div class="hide" id="luckyDrawing"><input id="showName" readonly unselectable="on" type="text"></div>
+            <!--PillarsZhang:用unselectable="on"來去掉文本框的光標-->
+            <div class="hide" id="result">
+                <div>
+                    <font size="10"></font>
+                </div>
             </div>
-        </div>
-    </section>
-    <footer>
-        <div><input id="txtNum" value="1" type="hidden">
-             <button id="btnStart">&nbsp;抽&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;籤</button>            
-        </div>
-    </footer>
+        </section>
+        <footer>
+            <div>
+                <input id="txtNum" value="1" type="hidden">
+                <button id="btnStart">&nbsp;抽&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;籤</button>
+            </div>
+        </footer>
 
-</div>
-<div id="bgLuckyDrawEnd"></div>
-<!--六個會動的小圖-->
-<div id="iconDiv" class="animated fadeIn"><span><img src="css/img/icon/01.png"> </span><span><img
-        src="css/img/icon/02.png"> </span><span><img src="css/img/icon/03.png"> </span><span><img
-        src="css/img/icon/04.png"> </span><span><img src="css/img/icon/05.png"> </span><span><img
-        src="css/img/icon/06.png"> </span></div>
+    </div>
+    <div id="bgLuckyDrawEnd"></div>
+    <!--六個會動的小圖-->
+    <div id="iconDiv" class="animated fadeIn">
+        <span><img src="css/img/icon/01.png"> </span><span>
+            <img src="css/img/icon/02.png">
+        </span><span><img src="css/img/icon/03.png"> </span><span>
+            <img src="css/img/icon/04.png">
+        </span><span><img src="css/img/icon/05.png"> </span><span>
+            <img src="css/img/icon/06.png">
+        </span>
+    </div>
 </body>
 </html>
